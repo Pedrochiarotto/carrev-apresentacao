@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07111f" />
+  <title>CarRev — Jornada Estratégica</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar" aria-label="Controles da apresentação">
+      <button class="control ghost" id="mapBtn" type="button" aria-haspopup="dialog" aria-controls="mapPanel">
+        <span class="control-icon">⌘</span><span>Mapa</span>
+      </button>
+      <div class="nav-cluster">
+        <button class="control icon" id="prevBtn" type="button" aria-label="Slide anterior">‹</button>
+        <div class="counter"><span id="currentSlide">01</span><span class="counter-sep">/</span><span id="totalSlides">10</span></div>
+        <button class="control icon" id="nextBtn" type="button" aria-label="Próximo slide">›</button>
+      </div>
+      <div class="brand-mini"><span class="brand-dot">C</span><strong>CarRev</strong></div>
+    </header>
+
+    <main id="deck" class="deck" aria-live="polite">
+      <section class="slide active cover" data-title="CarRev" data-category="Contexto">
+        <div class="cover-copy">
+          <div class="eyebrow">JORNADA ESTRATÉGICA</div>
+          <h1><span class="car">Car</span><span class="rev">Rev</span></h1>
+          <h2>Inteligência de mercado para revendas de veículos</h2>
+          <p class="lead">Uma startup B2B que transforma dados automotivos em decisões mais rápidas, seguras e rentáveis.</p>
+          <div class="tag-row"><span>Dados</span><span>Precificação</span><span>IA</span><span>Decisão</span></div>
+          <div class="cover-cards">
+            <article><b>Problema</b><p>Decisões de compra e preço ainda dependem de consultas manuais e percepção individual.</p></article>
+            <article><b>Solução</b><p>Dashboard, indicadores de mercado e inteligência aplicada ao estoque e à precificação.</p></article>
+            <article><b>Futuro</b><p>Um agente inteligente capaz de recomendar ações práticas para a revenda.</p></article>
+          </div>
+        </div>
+        <div class="cover-visual">
+          <div class="screen-frame"><img src="assets/carrev-dashboard.jpg" alt="Dashboard web da CarRev" /></div>
+          <div class="statement">DADOS QUE<br><strong>VIRAM DECISÕES.</strong></div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Apresentação" data-category="Contexto">
+        <div class="slide-header">
+          <div><div class="eyebrow">01 · CONTEXTO</div><h2>Apresentação da CarRev</h2><p>O que é a startup, para quem ela existe e onde quer chegar.</p></div>
+          <div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div>
+        </div>
+        <div class="info-grid five">
+          <article class="panel"><span class="panel-icon">▦</span><h3>Quem somos</h3><p>Startup B2B voltada a revendas de veículos usados, combinando dados de mercado, automação e inteligência artificial.</p></article>
+          <article class="panel"><span class="panel-icon">◎</span><h3>Missão</h3><p>Ajudar revendas a vender melhor, comprar com mais segurança e tomar decisões baseadas em dados reais.</p></article>
+          <article class="panel"><span class="panel-icon">◆</span><h3>O que fazemos</h3><p>Coleta de anúncios, indicadores em dashboards, análises de preço, giro e estoque e apoio inteligente à decisão.</p></article>
+          <article class="panel"><span class="panel-icon">♥</span><h3>Valores</h3><p>Ética no uso dos dados, simplicidade, inovação aplicada e foco no revendedor.</p></article>
+          <article class="panel"><span class="panel-icon">↗</span><h3>Futuro</h3><p>Evoluir para um agente inteligente que recomende ações com base em mercado, estoque e histórico.</p></article>
+        </div>
+        <div class="metric-strip">
+          <div><strong>Precificação</strong><span>mais inteligente</span></div>
+          <div><strong>Giro</strong><span>mais visível</span></div>
+          <div><strong>Margem</strong><span>mais controlada</span></div>
+          <div><strong>Oportunidades</strong><span>mais acionáveis</span></div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Business Model Canvas" data-category="Estratégia">
+        <div class="slide-header"><div><div class="eyebrow">02 · MODELO DE NEGÓCIO</div><h2>Business Model Canvas</h2><p>Como a CarRev cria, entrega e captura valor.</p></div><div class="accent-quote">INTELIGÊNCIA<br>APLICADA AO<br><strong>NEGÓCIO.</strong></div></div>
+        <div class="bmc-grid">
+          <article class="bmc partners"><h3>8. Parcerias-chave</h3><ul><li>Fontes de dados automotivos</li><li>Revendas parceiras</li><li>Plataformas de anúncios</li><li>Provedores de nuvem e IA</li><li>Universidades e especialistas</li></ul></article>
+          <article class="bmc activities"><h3>7. Atividades-chave</h3><ul><li>Coleta e tratamento de dados</li><li>Desenvolvimento da plataforma</li><li>Treinamento do modelo de IA</li><li>Suporte aos usuários</li><li>Evolução dos dashboards</li></ul></article>
+          <article class="bmc value"><h3>2. Proposta de valor</h3><p>Inteligência de mercado para revendas comprarem e venderem veículos com mais segurança, usando dados, indicadores e IA para apoiar a precificação.</p></article>
+          <article class="bmc relationships"><h3>4. Relacionamento</h3><ul><li>Onboarding das revendas</li><li>Suporte consultivo</li><li>Feedback contínuo</li><li>Recomendações personalizadas</li></ul></article>
+          <article class="bmc segments"><h3>1. Segmentos de clientes</h3><ul><li>Revendas de usados</li><li>Concessionárias multimarcas</li><li>Pequenas e médias lojas</li><li>Gestores de estoque e pátios</li></ul></article>
+          <article class="bmc resources"><h3>6. Recursos-chave</h3><ul><li>Plataforma web</li><li>Banco de dados</li><li>Algoritmos de IA</li><li>Equipe técnica</li><li>Conhecimento do mercado</li></ul></article>
+          <article class="bmc channels"><h3>3. Canais</h3><ul><li>Plataforma web</li><li>LinkedIn e redes sociais</li><li>Demonstrações comerciais</li><li>Parcerias B2B</li></ul></article>
+          <article class="bmc costs"><h3>9. Estrutura de custos</h3><p>Desenvolvimento, infraestrutura, banco de dados, nuvem, marketing, suporte, pesquisa e IA.</p></article>
+          <article class="bmc revenue"><h3>5. Fontes de receita</h3><p>Assinatura mensal, planos por usuários, implantação e serviços/relatórios premium.</p></article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Persona" data-category="Estratégia">
+        <div class="slide-header"><div><div class="eyebrow">03 · CLIENTE</div><h2>Persona</h2><p>Quem toma as decisões que a CarRev quer tornar mais inteligentes.</p></div><div class="accent-quote">CONHECER O<br>CLIENTE É<br><strong>REDUZIR RUÍDO.</strong></div></div>
+        <div class="persona-layout">
+          <aside class="persona-card"><div class="avatar">RA</div><h3>Roberto Almeida</h3><p>45 anos · Proprietário de revenda<br>Araras/SP</p><blockquote>“Eu preciso comprar melhor, vender mais rápido e saber se o preço está competitivo.”</blockquote></aside>
+          <div class="persona-grid">
+            <article class="tone-green"><h3>Objetivos</h3><ul><li>Melhorar margem</li><li>Reduzir veículos parados</li><li>Comprar com menor risco</li><li>Precificar com segurança</li></ul></article>
+            <article class="tone-red"><h3>Dores</h3><ul><li>Dificuldade em definir preço justo</li><li>Falta de visão de mercado</li><li>Estoque parado</li><li>Análise manual</li></ul></article>
+            <article class="tone-blue"><h3>Motivações</h3><ul><li>Crescer a loja</li><li>Atender melhor</li><li>Decidir com rapidez</li><li>Evitar prejuízos</li></ul></article>
+            <article class="tone-yellow"><h3>Comportamento</h3><ul><li>Pesquisa anúncios diariamente</li><li>Valoriza soluções simples</li><li>Compara preços com frequência</li></ul></article>
+            <article class="tone-purple"><h3>Expectativas</h3><ul><li>Painel simples e confiável</li><li>Recomendações práticas</li><li>Indicadores de giro e margem</li></ul></article>
+            <article class="tone-teal"><h3>Canais</h3><ul><li>WhatsApp</li><li>Sites de anúncios</li><li>Redes sociais</li><li>Sistemas internos simples</li></ul></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Mapa de Empatia" data-category="Estratégia">
+        <div class="slide-header"><div><div class="eyebrow">04 · EXPERIÊNCIA</div><h2>Mapa de Empatia</h2><p>O cotidiano de Roberto e os pontos em que a CarRev pode gerar valor.</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
+        <div class="empathy-map">
+          <article><h3>Pensa e sente</h3><p>Quer reduzir riscos, aumentar margem e ter segurança ao comprar e vender veículos.</p></article>
+          <article><h3>Vê</h3><p>Concorrentes em diferentes plataformas, preços variáveis e clientes mais informados.</p></article>
+          <div class="empathy-center"><div class="avatar small">RA</div><strong>Roberto</strong><span>Persona CarRev</span></div>
+          <article><h3>Escuta</h3><p>Clientes, vendedores, comparações com concorrentes e pressão constante por descontos.</p></article>
+          <article><h3>Fala e faz</h3><p>Consulta anúncios, negocia, ajusta preços e procura oportunidades de compra.</p></article>
+          <article class="pain"><h3>Fraquezas</h3><ul><li>Falta de dados confiáveis</li><li>Medo de comprar caro</li><li>Estoque parado</li><li>Dependência de análise manual</li></ul></article>
+          <article class="gain"><h3>Ganhos</h3><ul><li>Precificação assertiva</li><li>Giro mais rápido</li><li>Melhor margem</li><li>Decisões orientadas por dados</li></ul></article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Diretrizes Estratégicas" data-category="Estratégia">
+        <div class="slide-header"><div><div class="eyebrow">05 · DIRETRIZES</div><h2>Missão, visão, valores e PTM</h2><p>O que direciona a evolução da CarRev.</p></div><div class="accent-quote">PROPÓSITO<br>QUE GUIA<br><strong>DECISÕES.</strong></div></div>
+        <div class="strategy-grid">
+          <article class="big-card"><span class="big-icon">◎</span><h3>Missão</h3><p>Fornecer inteligência de mercado para que revendas de veículos tomem decisões mais rápidas, seguras e rentáveis.</p></article>
+          <article class="big-card"><span class="big-icon">◉</span><h3>Visão</h3><p>Ser uma plataforma de referência em análise e precificação inteligente para o mercado brasileiro de veículos usados.</p></article>
+          <article class="big-card"><span class="big-icon">♟</span><h3>Valores</h3><p>Ética e transparência · Simplicidade · Inovação aplicada · Foco no revendedor · Aprendizado contínuo.</p></article>
+          <article class="big-card featured"><span class="big-icon">◆</span><h3>PTM</h3><p>Transformar dados automotivos em inteligência acessível para tornar as revendas mais competitivas, sustentáveis e preparadas para o futuro.</p></article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="PESTEL" data-category="Análise">
+        <div class="slide-header"><div><div class="eyebrow">06 · AMBIENTE EXTERNO</div><h2>Análise PESTEL</h2><p>Fatores que podem influenciar o presente e o futuro da CarRev.</p></div><div class="accent-quote">LER O<br>AMBIENTE PARA<br><strong>ANTECIPAR.</strong></div></div>
+        <div class="pestel-grid">
+          <article class="pestel p"><span>P</span><h3>Político</h3><p>Políticas tributárias e regras do setor automotivo podem afetar compra, venda, documentação e crédito.</p></article>
+          <article class="pestel e"><span>E</span><h3>Econômico</h3><p>Inflação, juros e poder de compra impactam demanda, margem e giro de estoque.</p></article>
+          <article class="pestel s"><span>S</span><h3>Social</h3><p>Consumidores buscam transparência, comparação de preços e segurança antes de comprar.</p></article>
+          <article class="pestel t"><span>T</span><h3>Tecnológico</h3><p>IA, web scraping, BI e nuvem permitem análises automotivas mais rápidas e precisas.</p></article>
+          <article class="pestel a"><span>E</span><h3>Ambiental</h3><p>Eficiência, consumo e impacto ambiental influenciam o interesse por modelos específicos.</p></article>
+          <article class="pestel l"><span>L</span><h3>Legal</h3><p>LGPD, direitos de uso de dados e regras comerciais exigem governança e conformidade.</p></article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="5 Forças de Porter" data-category="Análise">
+        <div class="slide-header"><div><div class="eyebrow">07 · COMPETITIVIDADE</div><h2>5 Forças de Porter</h2><p>Onde estão as principais pressões competitivas sobre a CarRev.</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
+        <div class="porter-layout">
+          <article class="force f1"><h3>1. Novos entrantes</h3><span class="level">MÉDIA / ALTA</span><p>SaaS pode surgir com baixo custo inicial, mas dados, confiança e aderência ao setor criam barreiras.</p></article>
+          <article class="force f2"><h3>2. Fornecedores</h3><span class="level">MÉDIO</span><p>Fontes de dados, nuvem e serviços de IA influenciam custo, qualidade e continuidade.</p></article>
+          <article class="force center"><h3>3. Rivalidade</h3><span class="level">ALTA</span><p>ERPs, planilhas, consultorias, marketplaces e soluções de dados competem por atenção e orçamento.</p></article>
+          <article class="force f4"><h3>4. Clientes</h3><span class="level">ALTO</span><p>Revendas comparam preço e podem trocar de ferramenta se o valor percebido for baixo.</p></article>
+          <article class="force f5"><h3>5. Substitutos</h3><span class="level">MÉDIO / ALTO</span><p>Planilhas, consultas manuais, experiência do vendedor e marketplaces substituem parte da proposta.</p></article>
+        </div>
+        <div class="summary-callout"><b>Diferenciação necessária:</b> qualidade dos dados, simplicidade, integração ao dia a dia e recomendações acionáveis.</div>
+      </section>
+
+      <section class="slide" data-title="SWOT" data-category="Análise">
+        <div class="slide-header"><div><div class="eyebrow">08 · POSICIONAMENTO</div><h2>Análise SWOT</h2><p>Forças, fraquezas, oportunidades e ameaças da CarRev.</p></div><div class="accent-quote">FOCO NO QUE<br>CONTROLAMOS.<br><strong>VISÃO DO RESTO.</strong></div></div>
+        <div class="swot-grid">
+          <article class="swot strength"><h3><span>S</span> Forças</h3><ul><li>IA e dados de mercado <b>5</b></li><li>Proposta B2B clara <b>5</b></li><li>Plataforma web escalável <b>4</b></li><li>Indicadores práticos <b>4</b></li><li>Conhecimento do problema <b>4</b></li></ul><div class="sum">22</div></article>
+          <article class="swot weakness"><h3><span>W</span> Fraquezas</h3><ul><li>Dependência da qualidade dos dados <b>4</b></li><li>Validação com usuários reais <b>4</b></li><li>Projeto ainda em fase MVP <b>3</b></li><li>Marca sem reconhecimento <b>3</b></li><li>Integrações futuras <b>3</b></li></ul><div class="sum">17</div></article>
+          <article class="swot opportunity"><h3><span>O</span> Oportunidades</h3><ul><li>Mercado amplo de usados <b>5</b></li><li>Decisões orientadas por dados <b>5</b></li><li>Busca por eficiência digital <b>4</b></li><li>Modelo SaaS <b>4</b></li><li>Integração com marketplaces <b>4</b></li></ul><div class="sum">22</div></article>
+          <article class="swot threat"><h3><span>T</span> Ameaças</h3><ul><li>Concorrentes com maior capital <b>4</b></li><li>Mudanças em acesso a dados <b>4</b></li><li>Resistência de usuários <b>3</b></li><li>Oscilações do mercado <b>3</b></li><li>Custos de infraestrutura/IA <b>3</b></li></ul><div class="sum">17</div></article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Matriz BCG" data-category="Conclusão">
+        <div class="slide-header"><div><div class="eyebrow">09 · PORTFÓLIO</div><h2>Matriz BCG</h2><p>Uma leitura ilustrativa do portfólio e das frentes de evolução da CarRev.</p></div><div class="accent-quote">CONSTRUIR O<br>CORE. TESTAR O<br><strong>FUTURO.</strong></div></div>
+        <div class="bcg-wrap">
+          <div class="axis y"><span>Alto</span><b>Crescimento do mercado</b><span>Baixo</span></div>
+          <div class="bcg-grid">
+            <article class="bcg star"><h3>★ Estrela</h3><p><b>Dashboard CarRev</b><br>Precificação com IA<br>Indicadores de margem e giro</p></article>
+            <article class="bcg question"><h3>? Em questionamento</h3><p><b>Agente inteligente</b><br>Score de oportunidade<br>Recomendações automáticas</p></article>
+            <article class="bcg cow"><h3>♟ Vaca leiteira</h3><p><b>Relatórios de desempenho</b><br>Assinatura SaaS básica</p></article>
+            <article class="bcg dog"><h3>◆ Abacaxi</h3><p><b>Funcionalidades sem uso</b><br>Integrações pouco aderentes</p></article>
+          </div>
+          <div class="axis x"><span>Alta</span><b>Participação relativa de mercado</b><span>Baixa</span></div>
+        </div>
+        <div class="final-line"><strong>Direção estratégica:</strong> validar o núcleo do produto com revendas reais, consolidar dados e precificação e evoluir as automações a partir do uso.</div>
+      </section>
+    </main>
+
+    <footer class="footer-bar"><span>CarRev · Workshop de análise estratégica</span><span>← → para navegar · M abre o mapa · F ativa tela cheia</span></footer>
+  </div>
+
+  <dialog id="mapPanel" class="map-panel">
+    <form method="dialog" class="map-inner">
+      <div class="map-head"><div><span class="eyebrow">MAPA INTERATIVO</span><h2>Jornada Estratégica da CarRev</h2><p>10 etapas para entender o negócio, o cliente e o posicionamento.</p></div><button class="close" aria-label="Fechar mapa">×</button></div>
+      <div id="mapGrid" class="map-grid"></div>
+      <div class="legend"><span><i class="c1"></i>Contexto</span><span><i class="c2"></i>Estratégia</span><span><i class="c3"></i>Análise</span><span><i class="c4"></i>Conclusão</span></div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
