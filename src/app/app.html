@@ -1,17 +1,17 @@
 <div class="app-shell">
 <header class="topbar" aria-label="Controles da apresentação">
  <a class="brand-mini" href="#slide-1" (click)="goTo(0)"><span class="brand-dot">C<span><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></span></span><strong>Car<span>Rev</span></strong><span class="brand-divider"></span><span class="edition">JORNADA ESTRATÉGICA</span></a>
- <div class="nav-cluster"><button class="control icon" (click)="goTo(current()-1)" [disabled]="current()===0" aria-label="Slide anterior">‹</button><div class="counter"><span>{{ number(current()) }}</span><span class="counter-sep">/</span><span>10</span></div><button class="control icon" (click)="goTo(current()+1)" [disabled]="current()===9" aria-label="Próximo slide">›</button></div>
+ <div class="nav-cluster"><button class="control icon" (click)="goTo(current()-1)" [disabled]="current()===0" aria-label="Slide anterior">‹</button><div class="counter"><span>{{ number(current()) }}</span><span class="counter-sep">/</span><span>{{slides.length}}</span></div><button class="control icon" (click)="goTo(current()+1)" [disabled]="current()===slides.length - 1" aria-label="Próximo slide">›</button></div>
  <div class="toolbar"><button class="control" (click)="map.showModal()" aria-haspopup="dialog" aria-controls="mapPanel"><span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" /></svg></span> Mapa</button><button class="control fullscreen-button" (click)="toggleFullscreen()" aria-label="Alternar tela cheia" title="Tela cheia (F)"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5" /></svg></button><button class="control print-button" (click)="print()" aria-label="Imprimir ou salvar como PDF" title="Imprimir / PDF"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v14m-5-5 5 5 5-5M4 18v3h16v-3" /></svg> PDF</button></div>
 </header>
 <div class="section-bar"><span>{{ slides[current()].category }}</span><span>{{ slides[current()].title }}</span><span class="section-caption">WORKSHOP DE ANÁLISE ESTRATÉGICA</span></div>
-<main id="deck" class="deck"><section [class.active]="current() === 0" [attr.inert]="current() !== 0 ? '' : null" [attr.aria-hidden]="current() !== 0" aria-roledescription="slide" aria-label="1 de 10" class="slide cover" data-title="CarRev" data-category="Contexto">
+<main id="deck" class="deck"><section [class.active]="current() === 0" [attr.inert]="current() !== 0 ? '' : null" [attr.aria-hidden]="current() !== 0" aria-roledescription="slide" [attr.aria-label]="'1 de ' + slides.length" class="slide cover" data-title="CarRev" data-category="Contexto">
         <div class="cover-copy">
-          <div class="eyebrow">ESTRATÉGIA & INTELIGÊNCIA AUTOMOTIVA</div>
+          <div class="eyebrow">WORKSHOP DE ANÁLISE ESTRATÉGICA · AVALIAÇÃO 1</div>
           <h1><span class="car">Car</span><span class="rev">Rev</span></h1>
           <h2>Inteligência de mercado para revendas de veículos</h2>
           <p class="lead">Uma startup B2B que transforma dados automotivos em decisões mais rápidas, seguras e rentáveis.</p>
-          <div class="tag-row"><span>Dados</span><span>Precificação</span><span>IA</span><span>Decisão</span></div>
+          <p class="cover-academic">Fundação Hermínio Ometto – Uniararas<br>Sistemas de Informação · Prof. Renato Cividini Matthiesen<br>Equipe CarRev · 24/09/2026</p><div class="tag-row"><span>Dados</span><span>Precificação</span><span>IA</span><span>Decisão</span></div>
           <button class="start-button" type="button" (click)="goTo(1)">Explorar a CarRev <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></span></button><div class="cover-cards">
             <article><b>Problema</b><p>Decisões de compra e preço ainda dependem de consultas manuais e percepção individual.</p></article>
             <article><b>Solução</b><p>Dashboard, indicadores de mercado e inteligência aplicada ao estoque e à precificação.</p></article>
@@ -23,129 +23,90 @@
           <div class="statement">DADOS QUE<br><strong>VIRAM DECISÕES.</strong></div>
         </div>
       </section>
-<section [class.active]="current() === 1" [attr.inert]="current() !== 1 ? '' : null" [attr.aria-hidden]="current() !== 1" aria-roledescription="slide" aria-label="2 de 10" class="slide" data-title="Apresentação" data-category="Contexto">
-        <div class="slide-header">
-          <div><div class="eyebrow">01 · CONTEXTO</div><h2>Apresentação da CarRev</h2><p>O que é a startup, para quem ela existe e onde quer chegar.</p></div>
-          <div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div>
-        </div>
-        <div class="info-grid five">
-          <article class="panel"><span class="panel-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" /></svg></span><h3>Quem somos</h3><p>Startup B2B voltada a revendas de veículos usados, combinando dados de mercado, automação e inteligência artificial.</p></article>
-          <article class="panel"><span class="panel-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8" /></svg></span><h3>Missão</h3><p>Ajudar revendas a vender melhor, comprar com mais segurança e tomar decisões baseadas em dados reais.</p></article>
-          <article class="panel"><span class="panel-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 9-9 9-9-9z" /></svg></span><h3>O que fazemos</h3><p>Coleta de anúncios, indicadores em dashboards, análises de preço, giro e estoque e apoio inteligente à decisão.</p></article>
-          <article class="panel"><span class="panel-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20 3 11C-2 2 8 0 12 7c4-7 14-5 9 4Z" /></svg></span><h3>Valores</h3><p>Ética no uso dos dados, simplicidade, inovação aplicada e foco no revendedor.</p></article>
-          <article class="panel"><span class="panel-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></span><h3>Futuro</h3><p>Evoluir para um agente inteligente que recomende ações com base em mercado, estoque e histórico.</p></article>
-        </div>
-        <div class="metric-strip">
-          <div><strong>Precificação</strong><span>mais inteligente</span></div>
-          <div><strong>Giro</strong><span>mais visível</span></div>
-          <div><strong>Margem</strong><span>mais controlada</span></div>
-          <div><strong>Oportunidades</strong><span>mais acionáveis</span></div>
-        </div>
-      </section>
-<section [class.active]="current() === 2" [attr.inert]="current() !== 2 ? '' : null" [attr.aria-hidden]="current() !== 2" aria-roledescription="slide" aria-label="3 de 10" class="slide" data-title="Business Model Canvas" data-category="Estratégia">
-        <div class="slide-header"><div><div class="eyebrow">02 · MODELO DE NEGÓCIO</div><h2>Business Model Canvas</h2><p>Como a CarRev cria, entrega e captura valor.</p></div><div class="accent-quote">INTELIGÊNCIA<br>APLICADA AO<br><strong>NEGÓCIO.</strong></div></div>
-        <div class="bmc-grid">
-          <article class="bmc partners"><h3>8. Parcerias-chave</h3><ul><li>Fontes de dados automotivos</li><li>Revendas parceiras</li><li>Plataformas de anúncios</li><li>Provedores de nuvem e IA</li><li>Universidades e especialistas</li></ul></article>
-          <article class="bmc activities"><h3>7. Atividades-chave</h3><ul><li>Coleta e tratamento de dados</li><li>Desenvolvimento da plataforma</li><li>Treinamento do modelo de IA</li><li>Suporte aos usuários</li><li>Evolução dos dashboards</li></ul></article>
-          <article class="bmc value"><h3>2. Proposta de valor</h3><p>Inteligência de mercado para revendas comprarem e venderem veículos com mais segurança, usando dados, indicadores e IA para apoiar a precificação.</p></article>
-          <article class="bmc relationships"><h3>4. Relacionamento</h3><ul><li>Onboarding das revendas</li><li>Suporte consultivo</li><li>Feedback contínuo</li><li>Recomendações personalizadas</li><li>Conteúdo educativo</li></ul></article>
-          <article class="bmc segments"><h3>1. Segmentos de clientes</h3><ul><li>Revendas de usados</li><li>Concessionárias multimarcas</li><li>Pequenas e médias lojas</li><li>Gestores de estoque e pátios</li></ul></article>
-          <article class="bmc resources"><h3>6. Recursos-chave</h3><ul><li>Plataforma web</li><li>Banco de dados</li><li>Algoritmos de IA</li><li>Equipe técnica</li><li>Conhecimento do mercado</li></ul></article>
-          <article class="bmc channels"><h3>3. Canais</h3><ul><li>Plataforma web</li><li>LinkedIn e redes sociais</li><li>Demonstrações comerciais</li><li>Parcerias B2B</li><li>Indicação de clientes</li></ul></article>
-          <article class="bmc costs"><h3>9. Estrutura de custos</h3><p>Desenvolvimento, infraestrutura, banco de dados, nuvem, marketing, suporte, pesquisa e IA.</p></article>
-          <article class="bmc revenue"><h3>5. Fontes de receita</h3><p>Assinatura mensal, planos por usuários, implantação e serviços/relatórios premium.</p></article>
-        </div>
-      </section>
-<section [class.active]="current() === 3" [attr.inert]="current() !== 3 ? '' : null" [attr.aria-hidden]="current() !== 3" aria-roledescription="slide" aria-label="4 de 10" class="slide" data-title="Persona" data-category="Estratégia">
-        <div class="slide-header"><div><div class="eyebrow">03 · CLIENTE</div><h2>Persona</h2><p>Quem toma as decisões que a CarRev quer tornar mais inteligentes.</p></div><div class="accent-quote">CONHECER O<br>CLIENTE É<br><strong>REDUZIR RUÍDO.</strong></div></div>
+<section [class.active]="current() === 1" [attr.inert]="current() !== 1 ? '' : null" [attr.aria-hidden]="current() !== 1" aria-roledescription="slide" [attr.aria-label]="'2 de ' + slides.length" class="slide revised-slide digital-slide" data-title="Transformação Digital" data-category="Estratégia"><div class="slide-header"><div><div class="eyebrow">01 · TRANSFORMAÇÃO DIGITAL</div><h2>Cinco pilares. Uma nova forma de decidir.</h2><p>Transformar dados automotivos em inteligência para apoiar revendas na compra, venda, precificação e gestão do estoque.</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
+<div class="pillars-grid">@for (pillar of content.pillars; track pillar.title; let i = $index) {
+ <article class="canvas-card"><div class="canvas-title"><span>{{number(i)}}</span><h3>{{pillar.title}}</h3></div>
+ <h4>Ações</h4><ul>@for (item of pillar.actions; track item) {<li>{{item}}</li>}</ul>
+ <h4>Ferramentas e recursos</h4><ul>@for (item of pillar.tools; track item) {<li>{{item}}</li>}</ul>
+ <h4>Indicadores de sucesso</h4><ul>@for (item of pillar.metrics; track item) {<li>{{item}}</li>}</ul></article>}
+</div><div class="drivers-grid">@for (driver of content.drivers; track driver.title) {<div><b>{{driver.title}}</b><p>{{driver.text}}</p></div>}</div>
+<p class="transformation-note">Transformação digital: mudar a forma como revendas tomam decisões usando dados, IA e inteligência de mercado.</p><div class="results-line"><b>Resultados esperados</b><span>Menos tempo analisando mercado e veículos.</span><span>Uso simples, rápido e orientado à revenda.</span><span>Inteligência automotiva B2B.</span><span>Dados, histórico e IA como diferenciais.</span></div>
+</section>
+<section [class.active]="current() === 2" [attr.inert]="current() !== 2 ? '' : null" [attr.aria-hidden]="current() !== 2" aria-roledescription="slide" [attr.aria-label]="'3 de ' + slides.length" class="slide revised-slide purpose-slide" data-title="Propósito Transformador Massivo" data-category="Estratégia"><div class="slide-header"><div><div class="eyebrow">02 · PROPÓSITO TRANSFORMADOR MASSIVO</div><h2>O propósito que move a CarRev</h2><p>O impacto que queremos gerar para as revendas e para o mercado.</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
+<div class="purpose-grid">@for (item of content.purpose; track item.title; let i = $index) {<article class="canvas-card"><span class="card-number">{{number(i)}}</span><h3>{{item.title}}</h3><p>{{item.text}}</p></article>}</div>
+<div class="purpose-value"><b>08 · Proposta de Valor para a Empresa (PVE)</b><p>A CarRev entrega análises, dashboards e inteligência artificial para aumentar a margem, acelerar o giro do estoque, reduzir riscos e melhorar as decisões de compra, venda e precificação.</p></div>
+</section>
+<section [class.active]="current() === 3" [attr.inert]="current() !== 3 ? '' : null" [attr.aria-hidden]="current() !== 3" aria-roledescription="slide" [attr.aria-label]="'4 de ' + slides.length" class="slide revised-slide " data-title="Princípios de Inovação" data-category="Inovação"><div class="slide-header"><div><div class="eyebrow">03 · INOVAÇÃO</div><h2>Oito princípios de inovação da Google</h2><p>Aplicações práticas na CarRev · Equipe CarRev · 24/09/2026</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
+<div class="eight-grid innovation-grid">@for (principle of content.principles; track principle.title; let i = $index) {<article class="canvas-card"><div class="canvas-title"><span>{{number(i)}}</span><h3>{{principle.title}}</h3></div><dl>@for (field of principle.fields; track field.label) {<dt>{{field.label}}</dt><dd>{{field.text}}</dd>}</dl></article>}</div>
+</section>
+<section [class.active]="current() === 4" [attr.inert]="current() !== 4 ? '' : null" [attr.aria-hidden]="current() !== 4" aria-roledescription="slide" [attr.aria-label]="'5 de ' + slides.length" class="slide revised-slide " data-title="Equipe CarRev" data-category="Execução"><div class="slide-header"><div><div class="eyebrow">04 · EQUIPE</div><h2>Papéis da equipe fundadora</h2><p>Responsabilidades, competências e contribuição de cada frente para a CarRev.</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
+<div class="team-grid">@for (role of content.roles; track role.title; let i = $index) {<article class="canvas-card"><span class="card-number">{{number(i)}}</span><h3>{{role.title}}</h3><p class="role-owner">{{role.owner}}</p><h4>Responsabilidades</h4><ul>@for (action of role.actions; track action) {<li>{{action}}</li>}</ul><h4>Competências</h4><p>{{role.skills}}</p><div class="role-impact">{{role.impact}}</div></article>}</div>
+</section>
+<section [class.active]="current() === 5" [attr.inert]="current() !== 5 ? '' : null" [attr.aria-hidden]="current() !== 5" aria-roledescription="slide" [attr.aria-label]="'6 de ' + slides.length" class="slide" data-title="Persona" data-category="Cliente">
+        <div class="slide-header"><div><div class="eyebrow">05 · CLIENTE</div><h2>Persona</h2><p>Quem toma as decisões que a CarRev quer tornar mais inteligentes.</p></div><div class="accent-quote">CONHECER O<br>CLIENTE É<br><strong>REDUZIR RUÍDO.</strong></div></div>
         <div class="persona-layout">
-          <aside class="persona-card"><img class="persona-photo" src="assets/image2.jpeg" alt="Gustavo Henrique Leal, persona apresentada no material de referência" /><h3>Gustavo Henrique Leal</h3><p>Proprietário de revenda · 4 anos de experiência<br>Araras/SP</p><p class="persona-profile">Dono de loja de veículos usados. Usa planilhas e anúncios como referência.</p><blockquote>“Eu preciso comprar melhor, vender mais rápido e saber se o preço está competitivo.”</blockquote><p class="persona-value"><b>Valor da CarRev</b><br>Dados organizados · Decisão rápida · Menos incerteza</p></aside>
+          <aside class="persona-card"><img class="persona-photo" src="assets/image2.jpeg" alt="Gustavo Henrique Leal, persona apresentada no material de referência" /><h3>Gustavo Henrique Leal</h3><p>Proprietário de revenda · 4 anos de experiência<br>Araras/SP</p><p class="persona-profile">Dono de loja de veículos usados. Usa planilhas e anúncios como referência.</p><blockquote>“Eu preciso comprar melhor, vender mais rápido e saber se o preço anunciado realmente está competitivo.”</blockquote><p class="persona-value"><b>Valor da CarRev</b><br>Dados organizados · Decisão rápida · Menos incerteza</p></aside>
           <div class="persona-grid">
             <article class="tone-green"><h3>Objetivos</h3><ul><li>Melhorar margem</li><li>Reduzir veículos parados</li><li>Comprar com menor risco</li><li>Precificar com segurança</li></ul></article>
-            <article class="tone-red"><h3>Dores</h3><ul><li>Dificuldade em definir preço justo</li><li>Falta de visão de mercado</li><li>Estoque parado</li><li>Análise manual</li></ul></article>
+            <article class="tone-red"><h3>Dores</h3><ul><li>Dificuldade em definir preço justo</li><li>Falta de visão de mercado</li><li>Estoque parado</li></ul></article>
             <article class="tone-blue"><h3>Motivações</h3><ul><li>Crescer a loja</li><li>Atender melhor</li><li>Decidir com rapidez</li><li>Evitar prejuízos</li></ul></article>
-            <article class="tone-yellow"><h3>Comportamento</h3><ul><li>Pesquisa anúncios diariamente</li><li>Valoriza soluções simples</li><li>Compara preços com frequência</li></ul></article>
+            <article class="tone-yellow"><h3>Comportamento</h3><ul><li>Pesquisa anúncios diariamente</li><li>Valoriza soluções simples</li></ul></article>
             <article class="tone-purple"><h3>Expectativas</h3><ul><li>Painel simples e confiável</li><li>Recomendações práticas</li><li>Indicadores de giro e margem</li></ul></article>
             <article class="tone-teal"><h3>Canais</h3><ul><li>WhatsApp</li><li>Sites de anúncios</li><li>Redes sociais</li><li>Sistemas internos simples</li></ul></article>
           </div>
         </div>
       </section>
-<section [class.active]="current() === 4" [attr.inert]="current() !== 4 ? '' : null" [attr.aria-hidden]="current() !== 4" aria-roledescription="slide" aria-label="5 de 10" class="slide" data-title="Mapa de Empatia" data-category="Estratégia">
-        <div class="slide-header"><div><div class="eyebrow">04 · EXPERIÊNCIA</div><h2>Mapa de Empatia</h2><p>O cotidiano de Gustavo e os pontos em que a CarRev pode gerar valor.</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
-        <div class="empathy-map empathy-circle">
-          <svg class="empathy-connections" viewBox="0 0 1000 540" preserveAspectRatio="none" aria-hidden="true">
-            <ellipse cx="500" cy="270" rx="290" ry="205" />
-            <path d="M500 270 210 65M500 270 790 65M500 270H210M500 270H790M500 270 210 475M500 270 790 475" />
-          </svg>
-          <article><h3>Pensa e sente</h3><p>Quer reduzir riscos, aumentar margem e ter segurança ao comprar e vender veículos.</p></article>
-          <article><h3>Vê</h3><p>Concorrentes em diferentes plataformas, preços variáveis e clientes mais informados.</p></article>
-          <div class="empathy-center"><img class="empathy-photo" src="assets/image2.jpeg" alt="Gustavo Henrique Leal, persona CarRev" /><strong>Gustavo Henrique Leal</strong><span>Persona CarRev</span></div>
-          <article><h3>Escuta</h3><p>Clientes, vendedores, comparações com concorrentes e pressão constante por descontos.</p></article>
-          <article><h3>Fala e faz</h3><p>Consulta anúncios, negocia, ajusta preços e procura oportunidades de compra.</p></article>
-          <article class="pain"><h3>Fraquezas</h3><ul><li>Falta de dados confiáveis</li><li>Medo de comprar caro</li><li>Estoque parado</li><li>Dependência de análise manual</li></ul></article>
-          <article class="gain"><h3>Ganhos</h3><ul><li>Precificação assertiva</li><li>Giro mais rápido</li><li>Melhor margem</li><li>Decisões orientadas por dados</li></ul></article>
-        </div>
-      </section>
-<section [class.active]="current() === 5" [attr.inert]="current() !== 5 ? '' : null" [attr.aria-hidden]="current() !== 5" aria-roledescription="slide" aria-label="6 de 10" class="slide" data-title="Diretrizes Estratégicas" data-category="Estratégia">
-        <div class="slide-header"><div><div class="eyebrow">05 · DIRETRIZES</div><h2>Missão, visão, valores e PTM</h2><p>O que direciona a evolução da CarRev.</p></div><div class="accent-quote">PROPÓSITO<br>QUE GUIA<br><strong>DECISÕES.</strong></div></div>
+<section [class.active]="current() === 6" [attr.inert]="current() !== 6 ? '' : null" [attr.aria-hidden]="current() !== 6" aria-roledescription="slide" [attr.aria-label]="'7 de ' + slides.length" class="slide" data-title="Diretrizes Estratégicas" data-category="Estratégia">
+        <div class="slide-header"><div><div class="eyebrow">06 · DIRETRIZES</div><h2>Missão, visão, valores e PTM</h2><p>O que direciona a evolução da CarRev.</p></div><div class="accent-quote">PROPÓSITO<br>QUE GUIA<br><strong>DECISÕES.</strong></div></div>
         <div class="strategy-grid">
           <article class="big-card"><span class="big-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8" /></svg></span><h3>Missão</h3><p>Fornecer inteligência de mercado para que revendas de veículos tomem decisões mais rápidas, seguras e rentáveis.</p></article>
           <article class="big-card"><span class="big-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6" /></svg></span><h3>Visão</h3><p>Ser uma plataforma de referência em análise e precificação inteligente para o mercado brasileiro de veículos usados.</p></article>
-          <article class="big-card"><span class="big-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21H4l2-7h12l2 7h-4M9 14V9m6 5V9M12 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6" /></svg></span><h3>Valores</h3><p>Ética e transparência · Simplicidade · Inovação aplicada · Foco no revendedor · Aprendizado contínuo.</p></article>
-          <article class="big-card featured"><span class="big-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 9-9 9-9-9z" /></svg></span><h3>PTM</h3><p>Transformar dados automotivos em inteligência acessível para tornar as revendas mais competitivas, sustentáveis e preparadas para o futuro.</p></article>
+          <article class="big-card"><span class="big-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21H4l2-7h12l2 7h-4M9 14V9m6 5V9M12 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6" /></svg></span><h3>Valores</h3><p>Ética e transparência no uso dos dados · Simplicidade na experiência do usuário · Inovação aplicada ao negócio · Foco no revendedor · Aprendizado contínuo.</p></article>
+          <article class="big-card featured"><span class="big-icon"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 9-9 9-9-9z" /></svg></span><h3>PTM — Propósito Transformador Massivo</h3><p>Transformar dados automotivos em inteligência acessível para tornar as revendas mais competitivas, sustentáveis e preparadas para o futuro.</p></article>
         </div>
       </section>
-<section [class.active]="current() === 6" [attr.inert]="current() !== 6 ? '' : null" [attr.aria-hidden]="current() !== 6" aria-roledescription="slide" aria-label="7 de 10" class="slide" data-title="PESTEL" data-category="Análise">
-        <div class="slide-header"><div><div class="eyebrow">06 · AMBIENTE EXTERNO</div><h2>Análise PESTEL</h2><p>Fatores que podem influenciar o presente e o futuro da CarRev.</p></div><div class="accent-quote">LER O<br>AMBIENTE PARA<br><strong>ANTECIPAR.</strong></div></div>
-        <div class="pestel-grid">
-          <article class="pestel p"><span>P</span><h3>Político</h3><p>Políticas tributárias e regras do setor automotivo podem afetar compra, venda, documentação e crédito.</p></article>
-          <article class="pestel e"><span>E</span><h3>Econômico</h3><p>Inflação, juros e poder de compra impactam demanda, margem e giro de estoque.</p></article>
-          <article class="pestel s"><span>S</span><h3>Social</h3><p>Consumidores buscam transparência, comparação de preços e segurança antes de comprar.</p></article>
-          <article class="pestel t"><span>T</span><h3>Tecnológico</h3><p>IA, web scraping, BI e nuvem permitem análises automotivas mais rápidas e precisas.</p></article>
-          <article class="pestel a"><span>E</span><h3>Ambiental</h3><p>Eficiência, consumo e impacto ambiental influenciam o interesse por modelos específicos.</p></article>
-          <article class="pestel l"><span>L</span><h3>Legal</h3><p>LGPD, direitos de uso de dados e regras comerciais exigem governança e conformidade.</p></article>
+<section [class.active]="current() === 7" [attr.inert]="current() !== 7 ? '' : null" [attr.aria-hidden]="current() !== 7" aria-roledescription="slide" [attr.aria-label]="'8 de ' + slides.length" class="slide revised-slide summary-slide" data-title="Síntese Estratégica" data-category="Análise"><div class="slide-header"><div><div class="eyebrow">07 · ANÁLISE E PENSAMENTO ESTRATÉGICO</div><h2>Do diagnóstico à decisão</h2><p>PESTEL, Porter e SWOT: uma visão integrada das prioridades da CarRev.</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
+<div class="analysis-summary">
+ <article class="analysis-card"><div class="analysis-heading"><span>01</span><h3>PESTEL</h3><small>Ambiente externo</small></div><dl class="compact-factors">
+ <dt>Político</dt><dd>Tributos, crédito e regras do setor.</dd><dt>Econômico</dt><dd>Juros, inflação e poder de compra afetam demanda, margem e giro.</dd><dt>Social</dt><dd>Busca por transparência e segurança.</dd><dt>Tecnológico</dt><dd>IA, scraping, BI e nuvem aceleram análises.</dd><dt>Ambiental</dt><dd>Eficiência, consumo e impacto ambiental orientam a procura.</dd><dt>Legal</dt><dd>LGPD e uso de dados exigem governança.</dd></dl></article>
+ <article class="analysis-card"><div class="analysis-heading"><span>02</span><h3>Porter</h3><small>Pressões competitivas</small></div><ul class="porter-summary">
+ <li><div><b>Rivalidade</b><span>Alta</span></div><p>ERPs, marketplaces e soluções de dados.</p></li>
+ <li><div><b>Novos entrantes</b><span>Média / alta</span></div><p>Baixo custo inicial; dados e confiança criam barreiras.</p></li>
+ <li><div><b>Fornecedores</b><span>Médio</span></div><p>Dependência de dados, nuvem e IA.</p></li>
+ <li><div><b>Clientes</b><span>Alto</span></div><p>Comparam preço e trocam se não percebem valor.</p></li>
+ <li><div><b>Substitutos</b><span>Médio / alto</span></div><p>Planilhas, consultas manuais e experiência.</p></li></ul></article>
+ <article class="analysis-card"><div class="analysis-heading"><span>03</span><h3>SWOT</h3><small>Posicionamento</small></div><div class="swot-summary">
+ <div><h4>Forças <b>+22</b></h4><p>IA e dados, foco B2B, escala web, indicadores práticos e domínio do problema.</p></div>
+ <div><h4>Fraquezas <b>−17</b></h4><p>Qualidade dos dados, validação pendente, MVP, marca e integrações em evolução.</p></div>
+ <div><h4>Oportunidades <b>+22</b></h4><p>Mercado de usados, digitalização, decisões com dados, SaaS e marketplaces.</p></div>
+ <div><h4>Ameaças <b>−17</b></h4><p>Concorrência capitalizada, acesso a dados, resistência, oscilações e custos de IA.</p></div></div></article>
+</div>
+<div class="strategic-thinking"><h3>Pensamento estratégico</h3><p class="synthesis-note">Síntese das análises do material</p><div><p><b>Validar valor</b>Testar o MVP com revendas reais e medir margem, giro e tempo de decisão.</p><p><b>Diferenciar pela confiança</b>Priorizar dados confiáveis, governança e recomendações práticas.</p><p><b>Crescer com foco</b>Oferecer experiência simples, integrada à rotina, e evoluir IA e parcerias pelo feedback.</p></div></div>
+</section>
+<section [class.active]="current() === 8" [attr.inert]="current() !== 8 ? '' : null" [attr.aria-hidden]="current() !== 8" aria-roledescription="slide" [attr.aria-label]="'9 de ' + slides.length" class="slide" data-title="Business Model Canvas" data-category="Negócio">
+        <div class="slide-header"><div><div class="eyebrow">08 · MODELO DE NEGÓCIO</div><h2>Business Model Canvas</h2><p>Como a CarRev cria, entrega e captura valor.</p></div><div class="accent-quote">INTELIGÊNCIA<br>APLICADA AO<br><strong>NEGÓCIO.</strong></div></div>
+        <div class="bmc-grid">
+          <article class="bmc partners"><h3>8. Parcerias-chave</h3><ul><li>Fontes de dados automotivos</li><li>Revendas parceiras</li><li>Plataformas de anúncios</li><li>Provedores de nuvem e IA</li><li>Universidades e especialistas</li></ul></article>
+          <article class="bmc activities"><h3>7. Atividades-chave</h3><ul><li>Coleta e tratamento de dados</li><li>Desenvolvimento da plataforma</li><li>Treinamento do modelo de IA</li><li>Suporte aos usuários</li><li>Evolução dos dashboards</li></ul></article>
+          <article class="bmc value"><h3>2. Proposta de valor</h3><p>Inteligência de mercado para revendas comprarem e venderem veículos com mais segurança, usando dados, indicadores e IA para apoiar a precificação.</p></article>
+          <article class="bmc relationships"><h3>4. Relacionamento</h3><ul><li>Onboarding das revendas</li><li>Suporte consultivo</li><li>Feedback contínuo</li><li>Recomendações personalizadas</li><li>Conteúdo educativo</li></ul></article>
+          <article class="bmc segments"><h3>1. Segmentos de clientes</h3><ul><li>Revendas de usados</li><li>Concessionárias multimarcas</li><li>Pequenas e médias lojas</li><li>Gestores de estoque</li><li>Proprietários de pátios</li></ul></article>
+          <article class="bmc resources"><h3>6. Recursos-chave</h3><ul><li>Plataforma web</li><li>Banco de dados</li><li>Algoritmos de IA</li><li>Equipe técnica</li><li>Conhecimento do mercado</li></ul></article>
+          <article class="bmc channels"><h3>3. Canais</h3><ul><li>Plataforma web</li><li>LinkedIn e redes sociais</li><li>Demonstrações comerciais</li><li>Parcerias B2B</li><li>Indicação de clientes</li></ul></article>
+          <article class="bmc costs"><h3>9. Estrutura de custos</h3><p>Desenvolvimento e infraestrutura · Banco de dados e nuvem · Marketing e vendas · Suporte e treinamento · Pesquisa e IA.</p></article>
+          <article class="bmc revenue"><h3>5. Fontes de receita</h3><p>Assinatura mensal por revenda · Planos por quantidade de usuários · Serviços de implantação · Consultorias e relatórios premium.</p></article>
         </div>
       </section>
-<section [class.active]="current() === 7" [attr.inert]="current() !== 7 ? '' : null" [attr.aria-hidden]="current() !== 7" aria-roledescription="slide" aria-label="8 de 10" class="slide" data-title="5 Forças de Porter" data-category="Análise">
-        <div class="slide-header"><div><div class="eyebrow">07 · COMPETITIVIDADE</div><h2>5 Forças de Porter</h2><p>Onde estão as principais pressões competitivas sobre a CarRev.</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
-        <div class="porter-layout">
-          <article class="force f1"><h3>1. Novos entrantes</h3><span class="level">MÉDIA / ALTA</span><p>SaaS pode surgir com baixo custo inicial, mas dados, confiança e aderência ao setor criam barreiras.</p></article>
-          <article class="force f2"><h3>2. Fornecedores</h3><span class="level">MÉDIO</span><p>Fontes de dados, nuvem e serviços de IA influenciam custo, qualidade e continuidade.</p></article>
-          <article class="force center"><h3>3. Rivalidade</h3><span class="level">ALTA</span><p>ERPs, planilhas, consultorias, marketplaces e soluções de dados competem por atenção e orçamento.</p></article>
-          <article class="force f4"><h3>4. Clientes</h3><span class="level">ALTO</span><p>Revendas comparam preço e podem trocar de ferramenta se o valor percebido for baixo.</p></article>
-          <article class="force f5"><h3>5. Substitutos</h3><span class="level">MÉDIO / ALTO</span><p>Planilhas, consultas manuais, experiência do vendedor e marketplaces substituem parte da proposta.</p></article>
-        </div>
-        <div class="summary-callout"><b>Diferenciação necessária:</b> qualidade dos dados, simplicidade, integração ao dia a dia e recomendações acionáveis.</div>
-      </section>
-<section [class.active]="current() === 8" [attr.inert]="current() !== 8 ? '' : null" [attr.aria-hidden]="current() !== 8" aria-roledescription="slide" aria-label="9 de 10" class="slide" data-title="SWOT" data-category="Análise">
-        <div class="slide-header"><div><div class="eyebrow">08 · POSICIONAMENTO</div><h2>Análise SWOT</h2><p>Forças, fraquezas, oportunidades e ameaças da CarRev.</p></div><div class="accent-quote">FOCO NO QUE<br>CONTROLAMOS.<br><strong>VISÃO DO RESTO.</strong></div></div>
-        <div class="swot-grid">
-          <article class="swot strength"><h3><span>S</span> Forças</h3><ul><li>IA e dados de mercado <b>5</b></li><li>Proposta B2B clara <b>5</b></li><li>Plataforma web escalável <b>4</b></li><li>Indicadores práticos <b>4</b></li><li>Conhecimento do problema <b>4</b></li></ul><div class="sum">22</div></article>
-          <article class="swot weakness"><h3><span>W</span> Fraquezas</h3><ul><li>Dependência da qualidade dos dados <b>−4</b></li><li>Validação com usuários reais <b>−4</b></li><li>Projeto ainda em fase MVP <b>−3</b></li><li>Marca sem reconhecimento <b>−3</b></li><li>Integrações futuras <b>−3</b></li></ul><div class="sum">−17</div></article>
-          <article class="swot opportunity"><h3><span>O</span> Oportunidades</h3><ul><li>Mercado amplo de usados <b>5</b></li><li>Decisões orientadas por dados <b>5</b></li><li>Busca por eficiência digital <b>4</b></li><li>Modelo SaaS <b>4</b></li><li>Integração com marketplaces <b>4</b></li></ul><div class="sum">22</div></article>
-          <article class="swot threat"><h3><span>T</span> Ameaças</h3><ul><li>Concorrentes com maior capital <b>−4</b></li><li>Mudanças em acesso a dados <b>−4</b></li><li>Resistência de usuários <b>−3</b></li><li>Oscilações do mercado <b>−3</b></li><li>Custos de infraestrutura/IA <b>−3</b></li></ul><div class="sum">−17</div></article>
-        </div>
-      </section>
-<section [class.active]="current() === 9" [attr.inert]="current() !== 9 ? '' : null" [attr.aria-hidden]="current() !== 9" aria-roledescription="slide" aria-label="10 de 10" class="slide" data-title="Matriz BCG" data-category="Conclusão">
-        <div class="slide-header"><div><div class="eyebrow">09 · PORTFÓLIO</div><h2>Matriz BCG</h2><p>Uma leitura ilustrativa do portfólio e das frentes de evolução da CarRev.</p></div><div class="accent-quote">CONSTRUIR O<br>CORE. TESTAR O<br><strong>FUTURO.</strong></div></div>
-        <div class="bcg-wrap">
-          <div class="axis y"><span>Alto</span><b>Crescimento do mercado</b><span>Baixo</span></div>
-          <div class="bcg-grid">
-            <article class="bcg star"><h3><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" /></svg> Estrela</h3><p><b>Dashboard CarRev</b><br>Precificação com IA<br>Indicadores de margem e giro</p></article>
-            <article class="bcg question"><h3>? Em questionamento</h3><p><b>Agente inteligente</b><br>Score de oportunidade<br>Recomendações automáticas</p></article>
-            <article class="bcg cow"><h3><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21H4l2-7h12l2 7h-4M9 14V9m6 5V9M12 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6" /></svg> Vaca leiteira</h3><p><b>Relatórios de desempenho</b><br>Assinatura SaaS básica</p></article>
-            <article class="bcg dog"><h3><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 9-9 9-9-9z" /></svg> Abacaxi</h3><p><b>Funcionalidades sem uso</b><br>Integrações pouco aderentes</p></article>
-          </div>
-          <div class="axis x"><span>Alta</span><b>Participação relativa de mercado</b><span>Baixa</span></div>
-        </div>
-        <div class="final-line"><strong>Direção estratégica:</strong> validar o núcleo do produto com revendas reais, consolidar dados e precificação e evoluir as automações a partir do uso.</div>
-      </section></main>
+<section [class.active]="current() === 9" [attr.inert]="current() !== 9 ? '' : null" [attr.aria-hidden]="current() !== 9" aria-roledescription="slide" [attr.aria-label]="'10 de ' + slides.length" class="slide revised-slide " data-title="8 Ps do Marketing Digital" data-category="Crescimento"><div class="slide-header"><div><div class="eyebrow">09 · MARKETING DIGITAL</div><h2>Os 8 Ps do marketing digital</h2><p>Analisar · Precificar · Decidir · Crescer — Pedro e equipe · 17/09/2026</p></div><div class="wordmark"><span class="car">Car</span><span class="rev">Rev</span></div></div>
+<div class="eight-grid marketing-grid">@for (item of content.marketing; track item.title; let i = $index) {<article class="canvas-card"><div class="canvas-title"><span>{{number(i)}}</span><h3>{{item.title}}</h3></div><ul>@for (action of item.actions; track action) {<li>{{action}}</li>}</ul></article>}</div>
+<div class="final-line"><strong>CarRev:</strong> dados e inteligência para revendas que vão mais longe.</div>
+</section></main>
 <footer class="footer-bar"><span>CarRev <span class="footer-dot">·</span> Uniararas · Sistemas de Informação</span><nav class="slide-dots" aria-label="Ir para slide">@for (slide of slides; track $index) {<button (click)="goTo($index)" [class.selected]="current()===$index" [attr.aria-label]="'Slide '+($index+1)+': '+slide.title" [attr.aria-current]="current()===$index ? 'step' : null"></button>}</nav><span class="keyboard-hint">Setas para navegar <span>·</span> M mapa <span>·</span> F tela cheia</span></footer>
-<div class="progress-track"><div [style.width.%]="(current()+1)*10"></div></div>
-<p class="sr-only" aria-live="polite" aria-atomic="true">Slide {{current()+1}} de 10: {{slides[current()].title}}</p>
+<div class="progress-track"><div [style.width.%]="(current()+1)/slides.length*100"></div></div>
+<p class="sr-only" aria-live="polite" aria-atomic="true">Slide {{current()+1}} de {{slides.length}}: {{slides[current()].title}}</p>
 @if (notice()) {<div class="notice" role="status">{{notice()}}</div>}
 </div>
 <dialog #map id="mapPanel" class="map-panel" aria-labelledby="map-title" (click)="closeBackdrop($event)">
-<div class="map-inner"><div class="map-head"><div><span class="eyebrow">VISÃO GERAL</span><h2 id="map-title">Uma jornada. Dez perspectivas.</h2><p>Explore o negócio, o cliente e o posicionamento da CarRev.</p></div><button class="close" (click)="map.close()" aria-label="Fechar mapa">×</button></div>
+<div class="map-inner"><div class="map-head"><div><span class="eyebrow">VISÃO GERAL</span><h2 id="map-title">Uma jornada. Novas perspectivas.</h2><p>Explore propósito, inovação, equipe e estratégia da CarRev.</p></div><button class="close" (click)="map.close()" aria-label="Fechar mapa">×</button></div>
 <div class="map-grid">@for (slide of slides; track $index) {<button class="map-item" [class.selected]="current()===$index" (click)="goTo($index); map.close()"><span class="num">{{number($index)}} <span aria-hidden="true"><svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></span></span><strong>{{slide.title}}</strong><small>{{slide.category}}</small></button>}</div>
 <p class="map-credit">Fundação Hermínio Ometto – Uniararas · Prof. Renato Cividini Matthiesen · Avaliação 1</p></div></dialog>
