@@ -74,3 +74,9 @@ Revisão de 24/09/2026: build de produção concluído. Testes em Chromium verif
 O workflow `.github/workflows/deploy-pages.yml` instala as dependências, compila o Angular com o caminho correto e publica pelo GitHub Pages a cada push na branch `main`. É possível acompanhar ou executar a publicação manualmente pela aba **Actions**. A origem do Pages deve estar configurada como **GitHub Actions** em Settings → Pages.
 
 Os links por slide funcionam no site publicado, por exemplo, a síntese estratégica: `https://pedrochiarotto.github.io/carrev-apresentacao/#slide-8`.
+
+## Revisão orientada ao produto e ao cliente
+
+Os dez slides foram aprofundados com base no código local do backend e do frontend CarRev, relacionando arquitetura, operação da revenda e experiência do comprador final. A narrativa distingue implementação no MVP, hipóteses de negócio, resultados a medir e evolução futura. Veja [a base do conteúdo e seus limites](docs/base-do-conteudo.md).
+
+A revisão é entregue por pull request. Após o merge na `main`, o workflow existente publica a apresentação no GitHub Pages.
