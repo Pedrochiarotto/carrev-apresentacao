@@ -322,3 +322,7 @@ body{background:#071a36;color:var(--ink)}
 @media screen and (min-width: 1101px) and (max-height: 820px) {
   .digital-slide { padding-bottom: 14px; }
 }
+
+@media screen and (min-width: 1101px) and (max-height: 820px) {
+  .summary-slide { padding-bottom: 12px; }
+}
